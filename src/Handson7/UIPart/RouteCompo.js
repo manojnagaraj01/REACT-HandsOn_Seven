@@ -5,14 +5,19 @@ import Student from './Student'
 import ContactUs from './ContactUs'
 import EditStudent from './EditStudent'
 import AddStudent from './AddStudent'
-
+import "./Handson7.css"
 function RouteCompo() {
   return (
     <>
       <BrowserRouter>
-      <NavLink to='/'>HOME ||</NavLink>
-      <NavLink to='/student'>STUDENT ||</NavLink>
-      <NavLink to='/contact'>CONTACT ||</NavLink>
+      <ul>
+        <li><NavLink to='/'>HOME</NavLink></li>
+        <li><NavLink to='/student'>STUDENT</NavLink></li>
+        <li><NavLink to='/contact'>CONTACT</NavLink></li>
+      </ul>
+      
+      
+      
           <Routes>
               <Route path='/' element={<Home/>}/>
               <Route path='/student' element={<Student/>}/>

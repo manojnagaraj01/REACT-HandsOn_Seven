@@ -3,17 +3,19 @@ import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate, useParams } from 'react-router-dom'
 import { editStudent } from '../Slice/Slice';
+import "./Handson7.css";
+
 function EditStudent() {
-  let Navi = useNavigate();
-  let StudentData = useSelector((state) => state.Student)
   let ParamIndex = useParams().id;
+  let StudentData = useSelector((state) => state.Student)
   let dispatch = useDispatch();
+  let Navi = useNavigate();
 
   const [info, setInfo] = useState({
-    name: StudentData[ParamIndex].name,
-    age: StudentData[ParamIndex].age,
-    course: StudentData[ParamIndex].course,
-    batch: StudentData[ParamIndex].batch,
+    name : StudentData[ParamIndex].name,
+    age : StudentData[ParamIndex].age,
+    course : StudentData[ParamIndex].course,
+    batch : StudentData[ParamIndex].batch,
   });
   
 
@@ -22,7 +24,7 @@ function EditStudent() {
   }
 
   const handleClick = (e) => {
-    e.preventDefault()
+    // e.preventDefault()
     dispatch(editStudent({info, ParamIndex }))
     Navi('/student');
   }
@@ -30,13 +32,27 @@ function EditStudent() {
   return (
     <section >
       {/* <form> */}
-          <input type="text" name='stuName' placeholder={StudentData[ParamIndex].stuName} className='stuDescInput' onChange={handleChange} /> <br/>
-          <input type="number" name='stuAge' placeholder={StudentData[ParamIndex].stuAge} className='stuDescInput' onChange={handleChange} /><br/>
-          <input type="text" name='stuCourse' placeholder={StudentData[ParamIndex].stuCourse} className='stuDescInput' onChange={handleChange} /><br/>
-          <input type="text" name='stuBatch' placeholder={StudentData[ParamIndex].stuBatch} className='stuDescInput' onChange={handleChange} /><br/>
+            <div div className='inputs'>
+                <label className='new-label'>NAME
+                  <input className='new-input' type="text" name='stuName' placeholder={StudentData[ParamIndex].name} onChange={handleChange} /> <br/>
+                </label>
+                <label className='new-label'>AGE
+                  <input className='new-input' type="number" name='stuAge' placeholder={StudentData[ParamIndex].age} onChange={handleChange} /><br/>
+                </label>
+            </div>
+            <div className='inputs'>
+                <label className='new-label'>COURSE 
+                  <input className='new-input' type="text" name='stuCourse' placeholder={StudentData[ParamIndex].course} onChange={handleChange} /><br/>
+                </label>
+                <label className='new-label'>BATCH
+                  <input className='new-input' type="text" name='stuBatch' placeholder={StudentData[ParamIndex].batch} onChange={handleChange} /><br/>
+                </label>
+            </div>
           {/* <button type="button" onClick={(e) => Navi('/student')} >Cancel</button> */}
-          <button onClick={handleClick}>Update</button>
-          <button onClick={handleClick}>Back</button>
+          <div className='new-student-button'>
+            <button className='update-button' onClick={handleClick}  >Update</button>
+            <button className='cancel-button' onClick={() => Navi('/student')}> cancel </button>
+          </div>
       {/* </form> */}
     </section>
   )

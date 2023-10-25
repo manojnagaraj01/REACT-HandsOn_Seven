@@ -1,14 +1,14 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const Studata = [
-    { name: "EA25", age : 24 ,course : 'MERN' ,  batch : 'may',  },
-    { name: "EA25", age : 24 ,course : 'MERN' ,  batch : 'may',  },
-    { name: "EA25", age : 24 ,course : 'MERN' ,  batch : 'may',  },
-    { name: "EA25", age : 24 ,course : 'MERN' ,  batch : 'may',  },
-    { name: "EA25", age : 24 ,course : 'MERN' ,  batch : 'may',  },
-    { name: "EA25", age : 24 ,course : 'MERN' ,  batch : 'may',  },
-    { name: "EA25", age : 24 ,course : 'MERN' ,  batch : 'may',  },
-    { name: "EA25", age : 24 ,course : 'MERN' ,  batch : 'may',  }
+    { name: "hello", age : 24 ,course : 'MERN' ,  batch : 'may',  },
+    { name: "hello", age : 24 ,course : 'MERN' ,  batch : 'may',  },
+    { name: "hello", age : 24 ,course : 'MERN' ,  batch : 'may',  },
+    { name: "hello", age : 24 ,course : 'MERN' ,  batch : 'may',  },
+    { name: "hello", age : 24 ,course : 'MERN' ,  batch : 'may',  },
+    { name: "hello", age : 24 ,course : 'MERN' ,  batch : 'may',  },
+    { name: "hello", age : 24 ,course : 'MERN' ,  batch : 'may',  },
+    { name: "hello", age : 24 ,course : 'MERN' ,  batch : 'may',  }
 ]
 
 const StuSlice = createSlice({
@@ -16,13 +16,13 @@ const StuSlice = createSlice({
     initialState : Studata,
     reducers : {
         editStudent : (state, action ) =>{
-            state[action.payload.Index] = action.payload.info
+            state[action.payload.ParamIndex] = action.payload.info
         },
         addStudent : (state, action ) =>{
-            state.push(action.payload.tempObj);
+            state.push(action.payload);
         }
     }
 })
 
-export const { editStudent , addStudent} = StuSlice.actions
+export const { editStudent , addStudent} = StuSlice.actions;
 export default StuSlice.reducer;

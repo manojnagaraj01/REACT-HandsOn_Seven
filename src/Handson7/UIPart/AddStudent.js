@@ -1,6 +1,8 @@
 import React from 'react'
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
+import { addStudent } from '../Slice/Slice';
+import "./Handson7.css";
 
 function AddStudent() {
     const dispatch = useDispatch();
@@ -9,25 +11,39 @@ function AddStudent() {
         name : '',
         age : '',
         course : '',
-        month : '',
+        batch : ''
     }
     const handlChange = (e) => {
         tempObj[e.target.name] = e.target.value;
     }
     const handleSubmit =()=> {
         // console.log(tempObj)
-        dispatch(AddStudent({tempObj}))
+        dispatch(addStudent({tempObj}))
         Navi('/student')
         // Navi(-1)
     }   
   return (
     <>
         <h2>This is new student place</h2>
-        <input type='text' placeholder='Enter name' onChange={handlChange}/><br/>
-        <input type='text' placeholder='Enter age' onChange={handlChange}/><br/>
-        <input type='text' placeholder='Enter course' onChange={handlChange}/><br/>
-        <input type='text' placeholder='Enter month' onChange={handlChange}/><br/>
-        <button onClick={handleSubmit}>Add New Student Data</button>
+        <div>
+            <button onClick={handleSubmit} className='backButton'>Add New Student Data</button>
+        </div>
+        <div className='inputs'>
+                <label className='new-label'>NAME
+                    <input className='new-input' type='text' placeholder='Enter name' onChange={handlChange}/><br/>
+                </label>
+                <label className='new-label'>AGE
+                    <input className='new-input' type='text' placeholder='Enter age' onChange={handlChange}/><br/>
+                </label>
+            </div>
+            <div className='inputs'>
+                <label className='new-label'>COURSE 
+                    <input className='new-input' type='text' placeholder='Enter course' onChange={handlChange}/><br/>
+                </label>
+                <label className='new-label'>BATCH
+                    <input className='new-input' type='text' placeholder='Enter batch' onChange={handlChange}/><br/>
+                </label>
+            </div>
     </>
   )
 }

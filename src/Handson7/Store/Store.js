@@ -3,7 +3,7 @@ import Slice from "../Slice/Slice";
 
 const Store = configureStore({
    reducer: {
-      Student: Slice.reducer
+      Student: Slice
    }
 })
 
